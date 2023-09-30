@@ -1,2 +1,2 @@
 # docs
-Documentation Work Group
+Discussions about forming a Documentation Work Group
