@@ -1,5 +1,10 @@
-# docs
-Discussions about forming a Documentation Work Group
+# Jupyter Documentation Working Group
+
+This repo holds materials related to early discussions about forming a Jupyter Documentation Work Group.
+
+## HackMD
+
+https://hackmd.io/Z5ITYv74Rde12drdpHW5PA
 
 ## Existing Discussion Threads
 
