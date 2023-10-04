@@ -17,7 +17,7 @@ Anyone is welcome to attend, if they would like to discuss a topic or just liste
 You can find a collaborative document at HackMD used for driving meeting discussion topics, and capturing notes. Please
 feel free to come to the meetings and add agenda items for any items you'd like to discuss.
 
-https://hackmd.io/Z5ITYv74Rde12drdpHW5PA
+[https://hackmd.io/Z5ITYv74Rde12drdpHW5PA](https://hackmd.io/Z5ITYv74Rde12drdpHW5PA?both)
 
 ## Existing Discussion Threads
 
