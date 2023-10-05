@@ -1,5 +1,7 @@
 # Docs Working Group Charter (Proposed)
+## Goals
 
+The Docs Working Group's goals should serve the end users of Jupyter projects.
 The Docs Working Group serves to support, assist, and advise Jupyter subprojects on documentation best practices.
 
 ## Docs WG's scope and role
