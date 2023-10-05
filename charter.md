@@ -1,6 +1,6 @@
 The Docs Working Group should exist as a support/helper and advisory group to all the subprojects in Jupyter. Here are some additional details to clarify the WG's scope and role:
 
-### The WG's scope and role:
+## Docs WG's scope and role
 
 - Help write docs (inside the bounds of each subproject's governance)
 - Develop recommendations and guidance:
