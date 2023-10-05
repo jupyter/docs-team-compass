@@ -6,6 +6,10 @@ The Docs Working Group serves to support, assist, and advise Jupyter subprojects
 
 ## Docs WG's scope and role
 
+### Improve end-user discoverability of docs
+- Create a markdown file that links to all projects and their user-facing documentation (This markdown file will help provide an easy way to link out to the different subproject's docs).
+
+### Assist subprojects
 - Help write docs (inside the bounds of each subproject's governance)
 - Develop recommendations and guidance:
 	- For communicating common information and concepts across the Jupyter ecosystem
