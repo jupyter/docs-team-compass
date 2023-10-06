@@ -1,34 +1,48 @@
 # Docs Working Group Charter (Proposed)
-## Goals
 
-The Docs Working Group's goals should serve the end users of Jupyter projects.
-The Docs Working Group serves to support, assist, and advise Jupyter subprojects on documentation best practices.
+## Mission and Goals
 
-## Docs WG's scope and role
+The Docs Working Group serves as a support, helper, and advisory body to Jupyter subprojects on all aspects of documentation. The core pillars of our mission:
 
-### Improve end-user discoverability of docs
-- Create a markdown file that links to all projects and their user-facing documentation (This markdown file will help provide an easy way to link out to the different subproject's docs).
+- Improve all aspects of documentation across the Jupyter ecosystem
+- Make high quality documentation that is clear, comprehensive, inclusive, and serves the varying needs of Jupyter's diverse community
+- Engage with the community to help users with Jupyter products, discover their needs, and connect them with relevant information, expertise and resources
 
-### Assist subprojects
+The Docs Working Group will provide a place for consistent, focused, holistic efforts to be spent on docs across the whole ecosystem. This group exists in part to provide capacity and resources to the subprojects (some of which are already suffering from a lack of resources/capacity, and more specifically to work on docs in particular).
+
+We want all users to have positive experiences inside the Jupyter ecosystem, especially users who are learning and coming in for the first time, and users with disabilities.
+
+## The Docs Working Group's Activities
+
+The Docs Working Group will focus on the efforts described below, in service of its mission:
+
 - Help write docs (inside the bounds of each subproject's governance)
+    - This includes meta docs, cross-cutting docs (items relevant to multiple subprojects), developer and contributor docs, non user-facing docs and others
 - Develop recommendations and guidance:
 	- For communicating common information and concepts across the Jupyter ecosystem
-	- For style and best practices when authoring documentation media (including technical advice such as tools-usage and markdown guidance that helps support high level goals, like interlinking/cross-connection between subprojects)
-	- ...because we want to encourage consistency across the Jupyter ecosystem and between different projects
+        - Because we want to encourage consistency across the Jupyter ecosystem and between different projects
+	- For style and best practices when authoring documentation media
+        - Including technical advice, such as tools-usage and markdown guidance that helps support high level goals, like interlinking/cross-connection between subprojects
 - Community engagement
-	- To help connect users with information
+	- To help connect users with information, expertise and resources
 	- To gather feedback from the community about what needs to be documented/what information they need
 - Help support and improve all aspects of documentation across the Jupyter ecosystem
-	- This means, for members of the group, also taking on any related tasks that will be beneficial to docs and support the Docs Working Group's goals (such as writing PRs for unit tests related to documentation code, automations for gathering ReadTheDocs traffic stats, etc.)
+	- This means, for members of the group, also taking on any related (non-document) tasks that will be beneficial to docs and support the Docs Working Group's goals, such as:
+        - Developing application extensions related to docs, like in-app integrated docs, guided in-application tours or hoverable "what's this" features
+        - Automations for gathering ReadTheDocs traffic stats to gauge user interest
+        - Creating pip installable packages for getting offline docs
+        - Writing PRs for unit tests related to documentation code
+        - Automated discourse or CI bots for gathering user feedback from community sites
+        - Adding a new embedded "Hot Topics" feature on ReadTheDocs FAQ pages to automated discourse community discussion aggregator
+        - Any other innovations or work that may improve Jovyans' experience in/understanding of the Jupyter ecosystem
+ 
+## Insights, Challenges and Opportunities
 
-One reason for starting the Docs Working Group is to provide a place for consistent, focused effort to be spent specifically on docs across the whole ecosystem.
+This group has identified some insights and challenges (and related opportunities) that will help guide our work:
 
-In other words, the Docs Working Group exists in part to provide capacity and resources to the subprojects (some of which are already suffering from a lack of resources/capacity, and more specifically to work on docs in particular).
-
-Reflecting on the above, a goal/mission for the group might boil down to:
-
-### Goals/Mission
-
-- Help support and improve all aspects of documentation across the Jupyter ecosystem
-- Make high quality documentation that is clear, comprehensive, inclusive, and serves the varying needs of Jupyter's diverse community
-- Engage with the community to help users with Jupyter products, and to get them the information they need
+- Users often express that it's challenging to get a unified view of "what is Jupyter" and how the components work together.
+    - We should work to remedy this and provide more explanation and context in appropriate places.
+- Jupyter's modular approach (from The Big Split) can make it difficult to communicate the right information in the right place. Insights from one project can be relevant to other subprojects, and some information spans multiple subprojects.
+    - We should encourage consistency and cross-linking across the Jupyter ecosystem and between different subprojects.
+    - Create a docs page that links to all projects and their user-facing documentation (This page will help provide an easy way to link out to the different subproject's docs).
+- There should be multiple ways to consume docs, through multiple points of delivery.
