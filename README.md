@@ -1,6 +1,14 @@
-# Jupyter Documentation Working Group
+# Jupyter Documentation Working Group (Proposal)
 
-This repo holds materials related to early discussions about forming a Jupyter Documentation Work Group.
+The Docs Working Group serves as a support, helper, and advisory body to Jupyter subprojects on all aspects of documentation. The core pillars of our mission:
+
+- Improve all aspects of documentation across the Jupyter ecosystem
+- Make high quality documentation that is clear, comprehensive, inclusive, and serves the varying needs of Jupyter's diverse community
+- Engage with the community to help users with Jupyter products, discover their needs, and connect them with relevant information, expertise and resources
+
+## Welcome Everyone!
+
+The Docs Working Group welcomes everyone who wants to participate. Newcomers, writers, programmers, community members, please join us! You can find more information about participating below.
 
 ## Weekly Meetings
 
