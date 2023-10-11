@@ -46,3 +46,4 @@ This group has identified some insights and challenges (and related opportunitie
     - We should encourage consistency and cross-linking across the Jupyter ecosystem and between different subprojects.
     - Create a docs page that links to all projects and their user-facing documentation (This page will help provide an easy way to link out to the different subproject's docs).
 - There should be multiple ways to consume docs, through multiple points of delivery.
+- Plain Language should as much as possible to facilitate inclusivity for people of different backgrounds in the Jupyter community
