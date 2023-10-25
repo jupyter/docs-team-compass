@@ -31,6 +31,8 @@ feel free to come to the meetings and add agenda items for any items you'd like 
 
 *Please add additional items here.*
 
+Read more about the Docs Working Group's founding (and related discussions) at these links:
+
 - Original discussion-issue: https://github.com/jupyterlab/team-compass/issues/212
 - Jupyter Discourse post: https://discourse.jupyter.org/t/improving-documentation-tutorials-with-a-new-jupyter-working-group/21293
 - Discussion in Jupyter/Governance where to place the workgroup: https://github.com/jupyter/governance/issues/184
