@@ -17,7 +17,7 @@ This Guide Book aims to provide help for contributors by offering advice and bes
 - Consider how your content fits into the diataxis docs framework before you start, to ensure your content is focused toward the right purpose
 - Key Docs pages should be checked before release, so that essential information is not broken
 
-## Insights, Challenges and Opportunities
+## Key Observations
 
 These points were brought up during early Docs Working Group discussions. Some common challenges we need to be aware of while doing our work:
 
