@@ -31,7 +31,8 @@ feel free to come to the meetings and add agenda items for any items you'd like 
 
 *Please add additional items here.*
 
-- [Original discussion in **jupyterlab/team-compass**](https://github.com/jupyterlab/team-compass/issues/212)
-- [Issue discussed in **jupyterhub/mybinder.org-deploy**](https://github.com/jupyterhub/mybinder.org-deploy/issues/2732)
-- [Jupyter Discourse post](https://discourse.jupyter.org/t/improving-documentation-tutorials-with-a-new-jupyter-working-group/21293)
-- [Governance repo question about where to discuss the workgroup](https://github.com/jupyter/governance/issues/184)
+- Original discussion-issue: https://github.com/jupyterlab/team-compass/issues/212
+- Jupyter Discourse post: https://discourse.jupyter.org/t/improving-documentation-tutorials-with-a-new-jupyter-working-group/21293
+- Discussion in Jupyter/Governance where to place the workgroup: https://github.com/jupyter/governance/issues/184
+- Ping JupyterHub community: https://github.com/jupyterhub/mybinder.org-deploy/issues/2732 & https://github.com/jupyterhub/team-compass/issues/681
+- Ping Jupyter/Jupyter community: https://github.com/jupyter/jupyter/issues/699
