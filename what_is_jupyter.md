@@ -4,17 +4,17 @@
 [subprojects]: https://jupyter.org/governance/list_of_subprojects.html
 
 There is a lot in the name *Jupyter*; the project, the software, the notebooks.
-It is not unusual to fill confused with the many terms around "Jupyter".
+It is not unusual to feel confused with the many terms around "Jupyter".
 But confusion is never nice so let's try to clarify them.
 
 If you are completely new to *Jupyter*, the [`jupyter.org/about`][jupyter.org/about]
 page is good reading for an overview of the **project**.
-Completely open-source, the software developed by the project grew substantially
-as to be composed by many pieces; those *pieces* (Notebook, Lab, Hub)
+Completely open-source, the software developed by the project grew
+into many pieces; those *pieces* (i.e. Notebook, Lab, Hub)
 are developed by the different Jupyter [**subprojects**][subprojects]
 
-Let's break "Jupyter" in its components so we can clear them apart
-and have a better view of the *software*.
+Let's review Jupyter and its components to
+better understand the common terms referring to the *software*.
 
 
 ## *Notebook* vs *notebook*
@@ -23,7 +23,7 @@ Let's start from the most popular concept, what most of the discussions
 about *Jupyter* talk about: the "notebook".
 
 "Notebook" has two meanings: the notebook file format -- the `.ipynb` files --,
-and the Notebook graphical user interface -- the application -- we use to create
+and the graphical user interface -- the application -- used to create
 our notebooks.
 
 
