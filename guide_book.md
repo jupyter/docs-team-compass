@@ -25,3 +25,15 @@ These points were brought up during early Docs Working Group discussions. Some c
     - We should work to remedy this and provide more explanation and context in appropriate places.
 - Jupyter's modular approach (from The Big Split) can make it difficult to communicate the right information in the right place. Insights from one project can be relevant to other subprojects, and some information spans multiple subprojects.
 - There should be multiple ways to consume docs, through multiple points of delivery.
+
+## Processes
+
+Notes about our official processes are captured here to help guide Docs Working Group members in their efforts.
+
+### Moots
+
+Moots are a type of event/meeting hosted by member(s) of the Docs Working Group. In short, they're group-wide meetings that seek to bring experts and Docs Working Group members together so that expert information, opinions, and other materials can be gathered on a specific topic/area for the purpose of writing documentation (or otherwise furthering the Docs Working Group's mission).
+
+To hold a moot, we need to announce it to the Docs Working Group members, so make an issue or come to the weekly meetings and state your desire for a moot. If consensus has been reached about the need for a moot, planning can begin. Moots are gatherings for experts and Docs Working Group members, so we also need to identify and invite/schedule the relevant experts to come to the moot (members can and should help with this where possible).
+
+During the moot, we should attempt to record the meeting for use as a record to refer to during creation of subsequent documentation/materials. We should also try to organize concepts and create notes that capture relevant information, in collaboration with and review by our experts (to ensure accuracy).
