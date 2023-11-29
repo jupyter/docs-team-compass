@@ -35,3 +35,18 @@ The Docs Working Group will focus on the efforts described below, in service of 
         - Automated discourse or CI bots for gathering user feedback from community sites
         - Adding a new embedded "Hot Topics" feature on ReadTheDocs FAQ pages to automated discourse community discussion aggregator
         - Any other innovations or work that may improve Jovyans' experience in/understanding of the Jupyter ecosystem
+
+Founding Members
+
+- Carlos Brandt
+- Eric Gentry
+- Frederic Collonval
+- Mike Krassowski
+- Nick Bollweg
+- Rosio Reyes
+
+Decision Making
+
+The Docs Working Group will establish a council (by Jupyter convention) to make decisions.
+
+The Docs Working Group Council will initially be made up of the founding members. Council members can then initiate a vote to add new members (or remove members by a two thirds majority with a quorum of two thirds of all council members). The voting process will follow the guidelines established in the [Jupyter Governance Decision Making document](https://jupyter.org/governance/decision_making.html).
