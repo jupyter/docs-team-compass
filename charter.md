@@ -39,10 +39,12 @@ The Docs Working Group will focus on the efforts described below, in service of 
 Founding Members
 
 - Carlos Brandt
+- Carol Willing
 - Eric Gentry
 - Frederic Collonval
 - Mike Krassowski
 - Nick Bollweg
+- Paul Ivanov
 - Rosio Reyes
 
 Decision Making
