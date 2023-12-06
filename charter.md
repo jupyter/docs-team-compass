@@ -36,7 +36,7 @@ The Docs Working Group will focus on the efforts described below, in service of 
         - Adding a new embedded "Hot Topics" feature on ReadTheDocs FAQ pages to automated discourse community discussion aggregator
         - Any other innovations or work that may improve Jovyans' experience in/understanding of the Jupyter ecosystem
 
-Founding Members
+## Founding Members
 
 - Carlos Brandt
 - Carol Willing
@@ -47,7 +47,7 @@ Founding Members
 - Paul Ivanov
 - Rosio Reyes
 
-Decision Making
+## Decision Making
 
 The Docs Working Group will establish a council (by Jupyter convention) to make decisions.
 
