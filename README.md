@@ -1,4 +1,4 @@
-# Jupyter Documentation Working Group (Proposal)
+# Jupyter Documentation Working Group
 
 The Docs Working Group serves as a support, helper, and advisory body to Jupyter subprojects on all aspects of documentation. The core pillars of our mission:
 
