@@ -38,3 +38,10 @@ Read more about the Docs Working Group's founding (and related discussions) at t
 - Discussion in Jupyter/Governance where to place the workgroup: https://github.com/jupyter/governance/issues/184
 - Ping JupyterHub community: https://github.com/jupyterhub/mybinder.org-deploy/issues/2732 & https://github.com/jupyterhub/team-compass/issues/681
 - Ping Jupyter/Jupyter community: https://github.com/jupyter/jupyter/issues/699
+
+## Sub-projects `documentation` issues
+
+Currently open 'documentation' issues in Jupyter subprojects repositories:
+
+- [Documentation issues](workflows/documentation_issues.md)
+
