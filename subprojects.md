@@ -1,6 +1,72 @@
+# What is Jupyter
+
+> Jupyter "notebook" is a term used to express both: the *file* with containing the notebook
+> code and the classic *application* (Jupyter-Notebook) for creating and running those files.
+> There are other applications providing similar functionalities, Jupyter-Lab is one of them.
+
+We can group the subprojects in the following categories. (The subprojects are described below)
+
+### Applications and Interfaces
+- Jupyter Notebook
+- JupyterLab
+  - JupyterHub
+- Binder
+  - BinderHub
+- Voilà
+- IPython
+
+### Server and Gateway
+- Jupyter Server
+  - Jupyter Console
+- Enterprise Gateway
+- Kernel Gateway
+
+### Widgets and Interactive Tools
+- Jupyter Widgets
+- QtConsole
+
+### Kernels and Computational Engines
+- Jupyter Kernels
+- jupyter-xeus
+- IPykernel
+- ipyparallel
+
+### Security and Accessibility
+- Jupyter Security
+- Jupyter Accessibility
+
+### Foundations and Standards
+- Jupyter Notebook Format (nbformat)
+- Jupyter Core
+- Jupyter Client
+- Jupyter-packaging
+- Terminado
+- Telemetry
+- Traitlets
+
+### NB tools
+- nbclient
+- nbconvert
+- nbdime
+- nbgrader
+- nbviewer
+
+### Miscellaneous
+- JEPs repo (Jupyter Enhancement Proposals)
+- Docker stacks
+
+
 # Jupyter Subprojects
 
-Project Jupyter is composed by many subprojects, each focusing on different aspects of the Jupyter ecosystem. 
+Project Jupyter is composed by many subprojects, each subproject focuses on different components
+or aspects of the Jupyter ecosystem.
+Subprojects differ in size, activity, and governance.
+
+Jupyter products span from the definition of the Notebook *file 
+format* all the way to multi-user deployment of Notebook or Lab *applications*.
+Subprojects will take ownership of the different components or take over broader aspects such
+as accessibility and security.
+
 Regarding their governance, some subprojects have their own Council and SSC (Software Steering Committee), and the others are governed directly by the Project SSC.
 
 The major subprojects with their own formal Subproject Council are:
@@ -88,54 +154,3 @@ For a complete and detailed list, you can refer to the official Jupyter document
 - Docker stacks (jupyter/docker-stacks)
 
 
-## Jupyter Project Subprojects (categorized)
-
-### Applications and Interfaces
-- IPython
-- Jupyter Notebook
-- JupyterHub
-- JupyterLab
-
-- Binder/BinderHub
-- Voilà
-
-### Server and Gateway
-- Jupyter Server
-- Enterprise Gateway
-- Kernel Gateway
-
-- Jupyter Console
-
-### Widgets and Interactive Tools
-- Jupyter Widgets
-- QtConsole
-
-### Kernels and Computational Engines
-- Jupyter Kernels
-- jupyter-xeus
-- IPykernel
-- ipyparallel
-
-### Security and Accessibility
-- Jupyter Security
-- Jupyter Accessibility
-
-### Foundations and Standards
-- Jupyter Notebook Format (nbformat)
-- Jupyter Core
-- Jupyter Client
-- Jupyter-packaging
-- Terminado
-- Telemetry
-- Traitlets
-
-### NB tools
-- nbclient
-- nbconvert
-- nbdime
-- nbgrader
-- nbviewer
-
-### Miscellaneous
-- JEPs repo (Jupyter Enhancement Proposals)
-- Docker stacks
