@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Write CSV table with Subproject's issues labeled as 'documentation'
 
@@ -11,14 +12,14 @@ For each issue returned, we take note of its `number` (ID), title, and URL.
 The answer is written as a CSV table with fields defined in FIELDNAMES_CSV.
 """
 
-# Repositories to query
-DEFAULT_REPOS_FILE='repos.txt'
-
-# Output table filename
-DEFAULT_ISSUES_FILE='issues.csv'
+## Repositories to query
+#DEFAULT_REPOS_FILE='repos.txt'
+#
+## Output table filename
+#DEFAULT_ISSUES_FILE='issues.csv'
 
 # Table columns
-FIELDNAMES = ['repo', 'number', 'title', 'url']
+FIELDNAMES = ['repo', 'number', 'title', 'url', 'date']
 
 
 import csv
@@ -56,7 +57,8 @@ def fetch_issues(repo, label='documentation'):
             key = f"{repo}:{issue['number']}"
             issues[key] = {
                 'title': issue['title'],
-                'url': issue['html_url']
+                'url': issue['html_url'],
+                'date': issue['created_at'][:10]
             }
     return issues
 
@@ -68,7 +70,7 @@ _CSV_ARGS = dict(
 )
 
 
-def write_issues(issues, filename, write_md=None, write_html=None):
+def write_issues(issues, filename, write_md=None, write_js=None):
     """
     Write 'issues' to CSV 'filename'.
 
@@ -77,11 +79,6 @@ def write_issues(issues, filename, write_md=None, write_html=None):
 
     Return list of filename(s) created.
     """
-    def _unpack(key, issue):
-        repo, number = key.split(':')
-        issue.update({'repo':repo, 'number':number})
-        return issue
-
     def _write_csv(issues, filename):
         """Write CSV file"""
         with open(filename, 'w') as file:
@@ -103,42 +100,64 @@ def write_issues(issues, filename, write_md=None, write_html=None):
                 file.write(f"|{'|'.join(issue[key] for key in FIELDNAMES)}|\n")
         return filename
 
-    def _write_html(issues, filename):
-        """Write HTML (table) file"""
-        html = "<!doctype html><html><body><table>"
-        html += ("<tr>"
-                 f"{''.join( f'<th>{field}</th>' for field in FIELDNAMES )}"
-                 "</tr>")
+    def _write_js(issues, filename):
+        """
+        Write Javascript file defining a 'data' object.
+        This is going to be used/read by 'index.html'.
+        """
+        # html = "<!doctype html><html><body><table>"
+        data = []
         for key,issue in issues.items():
             issue = _unpack(key, issue)
-            _html = "<tr>"
-            for field in FIELDNAMES:
-                _html += "<td>"
-                val = issue[field]
-                if 'url' in field.lower():
-                    _html += f'<a href="{val}" target="_blank">{val}</a>'
-                else:
-                    _html += val
-                _html += "</td>"
-            _html += "</tr>"
-            html += _html
-        html += "</table></body></html>"
+            data.append(issue)
+        js = f"let data={data}"
         with open(filename, 'w') as fp:
-            fp.write(html)
+            fp.write(js)
         return filename
 
     files_out = []
     files_out.append(_write_csv(issues, filename))
     if write_md:
         files_out.append(_write_md(issues, write_md))
-    if write_html:
-        files_out.append(_write_html(issues, write_html))
+    if write_js:
+        files_out.append(_write_js(issues, write_js))
     return files_out
 
 
-def read_issues(filename):
+def _unpack(key, issue):
+    repo, number = key.split(':')
+    issue.update({'repo':repo, 'number':number})
+    return issue
+
+
+def read_issues(filename:str) -> dict:
     """
-    Read issues from CSV 'filename'
+    Return dictionary with issues from CSV 'filename'
+
+    Supposed 'filename' (CSV) table has the following lines::
+
+        "repo","number","title","url"
+        "orgA/repo1","27","Improve something","url-A1"
+        "orgA/repo2","99","Improve anotherthing","url-A2"
+        "orgB/repo1","12","Fix stuff","url-B1"
+
+    The return issues object will be::
+
+        {
+            'orgA/repo1:27' : {
+                'title' : 'Improve something',
+                'url' : 'url-A1'
+            },
+            'orgA/repo2:99' : {
+                'title' : 'Improve anotherthing',
+                'url' : 'url-A2'
+            },
+            'orgB/repo1:12' : {
+                'title' : 'Fix stuff',
+                'url' : 'url-B1'
+            }
+        }
+
     """
     issues = {}
     with open(filename) as file:
@@ -153,7 +172,7 @@ def read_issues(filename):
     return issues
 
 
-def main(repos_file, issues_file, write_md, write_html):
+def main(repos_file, issues_file, write_md, write_js):
     """
     Write CSV file from 'documentation' issues from 'repos_source.txt' file
 
@@ -194,26 +213,26 @@ def main(repos_file, issues_file, write_md, write_html):
     all_issues.update(issues)
 
     ## Write "new-current" list of issues
-    files_out = write_issues(all_issues, issues_file, write_md, write_html)
+    files_out = write_issues(all_issues, issues_file, write_md, write_js)
     print(f"Files created: {(', ').join(files_out)}.")
 
 
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--repos-file", default=DEFAULT_REPOS_FILE,
+    parser.add_argument("input", #default=DEFAULT_REPOS_FILE,
                         help="Filename with list of Jupyter repos")
-    parser.add_argument("--issues-file", default=DEFAULT_ISSUES_FILE,
+    parser.add_argument("output", #default=DEFAULT_ISSUES_FILE,
                         help="Filename for issues table (CSV)")
     parser.add_argument("--write-md", default=None,
                         help="Write Markdown (table) version if given")
-    parser.add_argument("--write-html", default=None,
-                        help="Write HTML (table) version if given")
+    parser.add_argument("--write-js", default=None,
+                        help="Write JS file defining a 'data' object")
     args = parser.parse_args()
 
     main(
-        repos_file=args.repos_file,
-        issues_file=args.issues_file,
+        repos_file=args.input,
+        issues_file=args.output,
         write_md=args.write_md,
-        write_html=args.write_html
+        write_js=args.write_js
         )
