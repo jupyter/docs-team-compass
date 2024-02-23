@@ -71,9 +71,6 @@
 |jupyterhub/jupyterhub|2134|Docs: Unclear / confusing DB upgrade instructions|https://github.com/jupyterhub/jupyterhub/issues/2134|
 |jupyterhub/jupyterhub|2049|Docs: Missing a chapter on monitoring / observability|https://github.com/jupyterhub/jupyterhub/issues/2049|
 |jupyterhub/jupyterhub|1310|Customize DockerHub documentation for JupyterHub|https://github.com/jupyterhub/jupyterhub/issues/1310|
-|jupyterlab/jupyterlab|15850|Add `4.0.x` and `4.1.x` to the documentation switcher|https://github.com/jupyterlab/jupyterlab/pull/15850|
-|jupyterlab/jupyterlab|15849|Reconfigure the 4.0.x branch (4.1.x is new stable)|https://github.com/jupyterlab/jupyterlab/pull/15849|
-|jupyterlab/jupyterlab|15848|Update branch configuration for `4.1.x`|https://github.com/jupyterlab/jupyterlab/pull/15848|
 |jupyterlab/jupyterlab|15819|File browser checkboxes not keyboard accessible|https://github.com/jupyterlab/jupyterlab/issues/15819|
 |jupyterlab/jupyterlab|15749|Improve documentation for `jupyter.lab.transform`|https://github.com/jupyterlab/jupyterlab/issues/15749|
 |jupyterlab/jupyterlab|15729|Should we use the council members doc page in lieu of the maintainers list in lab readme|https://github.com/jupyterlab/jupyterlab/issues/15729|
@@ -101,6 +98,9 @@
 |jupyterlab/jupyterlab|14294|Better messaging around conflicts with sharedPackages|https://github.com/jupyterlab/jupyterlab/issues/14294|
 |jupyterlab/jupyterlab|14283|Trying to disable build check, current instructions not working as expected|https://github.com/jupyterlab/jupyterlab/issues/14283|
 |jupyterlab/jupyterlab|14258|Lumino Widgets >= 2.0.0 is incompatible with JupyterLab Extension Tutorial example code|https://github.com/jupyterlab/jupyterlab/issues/14258|
+|jupyterlab/jupyterlab|14046|Clean up license|https://github.com/jupyterlab/jupyterlab/pull/14046|
+|jupyterlab/jupyterlab|13983|Add label/caption styles to writing style guide|https://github.com/jupyterlab/jupyterlab/issues/13983|
+|jupyterlab/jupyterlab|13971|Request for best practices/guidance on creating stable extensions which aren't version-dependent|https://github.com/jupyterlab/jupyterlab/issues/13971|
 |jupyterlab/jupyterlab-desktop|666|Support Windows Subsystem for Linux (WSL)|https://github.com/jupyterlab/jupyterlab-desktop/issues/666|
 |jupyterlab/jupyterlab-desktop|654|conversation starter for introductory docs|https://github.com/jupyterlab/jupyterlab-desktop/pull/654|
 |jupyterlab/jupyterlab-desktop|577|After upgrading JupyterLab using pip, I started jupyter-lab from the windows command and got an error.|https://github.com/jupyterlab/jupyterlab-desktop/issues/577|
