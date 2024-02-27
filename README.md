@@ -6,6 +6,8 @@ The Docs Working Group serves as a support, helper, and advisory body to Jupyter
 - Make high quality documentation that is clear, comprehensive, inclusive, and serves the varying needs of Jupyter's diverse community
 - Engage with the community to help users with Jupyter products, discover their needs, and connect them with relevant information, expertise and resources
 
+If you'd like to contact the members, you can email [jupyter-docs-working-group@googlegroups.com](mailto:jupyter-docs-working-group@googlegroups.com).
+
 ## Welcome Everyone!
 
 The Docs Working Group welcomes everyone who wants to participate. Newcomers, writers, programmers, community members, please join us! You can find more information about participating below.
