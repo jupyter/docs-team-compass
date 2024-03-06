@@ -42,7 +42,6 @@
 |jupyter/notebook|788|Add a doc page for tips on using Spark|https://github.com/jupyter/notebook/issues/788|
 |jupyter/notebook|660|Update public server document with troubleshooting and additional resources|https://github.com/jupyter/notebook/issues/660|
 |jupyterhub/jupyterhub|4700|Use redoc for REST API|https://github.com/jupyterhub/jupyterhub/pull/4700|
-|jupyterhub/jupyterhub|4682|Note that you can throw a 403 from check_allowed|https://github.com/jupyterhub/jupyterhub/pull/4682|
 |jupyterhub/jupyterhub|4673|Document / better support for separating user domains from the Hub domain|https://github.com/jupyterhub/jupyterhub/issues/4673|
 |jupyterhub/jupyterhub|4669|try redoc for REST API|https://github.com/jupyterhub/jupyterhub/issues/4669|
 |jupyterhub/jupyterhub|4656|FastAPI service example - Authorization header not sent in subsequent requests|https://github.com/jupyterhub/jupyterhub/issues/4656|
@@ -70,6 +69,8 @@
 |jupyterhub/jupyterhub|2134|Docs: Unclear / confusing DB upgrade instructions|https://github.com/jupyterhub/jupyterhub/issues/2134|
 |jupyterhub/jupyterhub|2049|Docs: Missing a chapter on monitoring / observability|https://github.com/jupyterhub/jupyterhub/issues/2049|
 |jupyterhub/jupyterhub|1310|Customize DockerHub documentation for JupyterHub|https://github.com/jupyterhub/jupyterhub/issues/1310|
+|jupyterlab/jupyterlab|15920|Add end of maintenance date to README|https://github.com/jupyterlab/jupyterlab/pull/15920|
+|jupyterlab/jupyterlab|15916|Use docker on CI to speed it up|https://github.com/jupyterlab/jupyterlab/pull/15916|
 |jupyterlab/jupyterlab|15909|Add devcontainer|https://github.com/jupyterlab/jupyterlab/pull/15909|
 |jupyterlab/jupyterlab|15866|Extra non-critical revisions for the dual compatibility document|https://github.com/jupyterlab/jupyterlab/pull/15866|
 |jupyterlab/jupyterlab|15819|File browser checkboxes not keyboard accessible|https://github.com/jupyterlab/jupyterlab/issues/15819|
@@ -83,7 +84,6 @@
 |jupyterlab/jupyterlab|15139|Mermaid Usage Instructions Missing|https://github.com/jupyterlab/jupyterlab/issues/15139|
 |jupyterlab/jupyterlab|15099|JupyterLab documentation wishlist|https://github.com/jupyterlab/jupyterlab/issues/15099|
 |jupyterlab/jupyterlab|14964|Add a screenshot with shell areas overview|https://github.com/jupyterlab/jupyterlab/pull/14964|
-|jupyterlab/jupyterlab|14838|Lab/NB7 extension compatibility docs|https://github.com/jupyterlab/jupyterlab/pull/14838|
 |jupyterlab/jupyterlab|14826|Document process of adding new commands to the command palette |https://github.com/jupyterlab/jupyterlab/issues/14826|
 |jupyterlab/jupyterlab|14775|3.6.5: documentation build fails|https://github.com/jupyterlab/jupyterlab/issues/14775|
 |jupyterlab/jupyterlab|14730|How to add/insert a new cell with pre defined content to cellList in 4.0.2|https://github.com/jupyterlab/jupyterlab/issues/14730|
@@ -99,7 +99,6 @@
 |jupyterlab/jupyterlab|14294|Better messaging around conflicts with sharedPackages|https://github.com/jupyterlab/jupyterlab/issues/14294|
 |jupyterlab/jupyterlab|14283|Trying to disable build check, current instructions not working as expected|https://github.com/jupyterlab/jupyterlab/issues/14283|
 |jupyterlab/jupyterlab|14258|Lumino Widgets >= 2.0.0 is incompatible with JupyterLab Extension Tutorial example code|https://github.com/jupyterlab/jupyterlab/issues/14258|
-|jupyterlab/jupyterlab|14046|Clean up license|https://github.com/jupyterlab/jupyterlab/pull/14046|
 |jupyterlab/jupyterlab-desktop|666|Support Windows Subsystem for Linux (WSL)|https://github.com/jupyterlab/jupyterlab-desktop/issues/666|
 |jupyterlab/jupyterlab-desktop|654|conversation starter for introductory docs|https://github.com/jupyterlab/jupyterlab-desktop/pull/654|
 |jupyterlab/jupyterlab-desktop|577|After upgrading JupyterLab using pip, I started jupyter-lab from the windows command and got an error.|https://github.com/jupyterlab/jupyterlab-desktop/issues/577|
