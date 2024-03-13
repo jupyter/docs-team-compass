@@ -67,10 +67,10 @@
 |jupyterhub/jupyterhub|2134|Docs: Unclear / confusing DB upgrade instructions|https://github.com/jupyterhub/jupyterhub/issues/2134|
 |jupyterhub/jupyterhub|2049|Docs: Missing a chapter on monitoring / observability|https://github.com/jupyterhub/jupyterhub/issues/2049|
 |jupyterhub/jupyterhub|1310|Customize DockerHub documentation for JupyterHub|https://github.com/jupyterhub/jupyterhub/issues/1310|
+|jupyterlab/jupyterlab|15969|Remove `node-fetch` dependency|https://github.com/jupyterlab/jupyterlab/pull/15969|
 |jupyterlab/jupyterlab|15955|Jupyterlab extension tutorial not written for novice|https://github.com/jupyterlab/jupyterlab/issues/15955|
 |jupyterlab/jupyterlab|15946|Implement Workspaces GUI|https://github.com/jupyterlab/jupyterlab/pull/15946|
 |jupyterlab/jupyterlab|15939|Document how to handle drives when creating new files|https://github.com/jupyterlab/jupyterlab/issues/15939|
-|jupyterlab/jupyterlab|15920|Add end of maintenance date to README|https://github.com/jupyterlab/jupyterlab/pull/15920|
 |jupyterlab/jupyterlab|15916|Use docker on CI to speed it up|https://github.com/jupyterlab/jupyterlab/pull/15916|
 |jupyterlab/jupyterlab|15909|Add devcontainer|https://github.com/jupyterlab/jupyterlab/pull/15909|
 |jupyterlab/jupyterlab|15866|Extra non-critical revisions for the dual compatibility document|https://github.com/jupyterlab/jupyterlab/pull/15866|
