@@ -1,0 +1,10 @@
+# List of repositories to query/source.
+# Those repositories will be queried for "documentation" issues.
+#
+# Commented (#) and blank lines in this file are ignored.
+
+jupyter/jupyter
+jupyter/notebook
+jupyterhub/jupyterhub
+jupyterlab/jupyterlab
+jupyterlab/jupyterlab-desktop

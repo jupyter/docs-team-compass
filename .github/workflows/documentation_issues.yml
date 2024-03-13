@@ -1,0 +1,49 @@
+name: Query subprojects documentation issues
+
+on:
+  schedule:
+    - cron: '5 5 * * *'  # Runs daily at 5:05am UTC
+
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./workflows/documentation_issues
+
+
+jobs:
+  query-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    env:
+      OUTPUT_BRANCH: gh-pages
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: >
+        pip install -r requirements.txt
+
+    - name: Fetch Issues and Write them down
+      run: |
+        # cd workflows/documentation_issues
+        python fetch_issues.py repos.txt issues.csv \
+          --write-js issues.js
+
+    - name: Commit and Push if changes exist
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        git checkout --orphan $OUTPUT_BRANCH
+        git add index.html issues.js
+        git diff --staged --quiet || git commit -m "Update documentation issues"
+        git push --force origin $OUTPUT_BRANCH

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--
+        JQuery version recommended/tested by 'dataTables.js' is 'jquery-1.12.4',
+        I'll instead use the one recommended/tested by Bootstrap (3.2.1) because
+        I'm assuming there will be backwards compatibility.
+    -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Javascript providing the data for the (issues) table -->
+    <script defer src="./issues.js"></script>
+
+    <script defer src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
+
+    <title>Jupyter Docs Issues</title>
+</head>
+
+<body>
+
+    <main class="m-1">
+
+        <h1>Jupyter sub-projects documentation issues</h1>
+        <div class="table-responsive border rounded p-1">
+            <div>
+                Toggle column:
+                <a class="btn btn-outline-secondary toggle-vis" data-column="0">Repo</a> -
+                <a class="btn btn-outline-secondary toggle-vis" data-column="1">Number</a> -
+                <a class="btn btn-outline-secondary toggle-vis" data-column="2">Title</a> -
+                <a class="btn btn-outline-secondary toggle-vis" data-column="3">URL</a> -
+                <a class="btn btn-outline-secondary toggle-vis" data-column="4">Date</a>
+            </div>
+            <table id="myTable" class="display nowrap table table-hover">
+                <caption>List of documentation issues across Jupyter projects</caption>
+                <thead class="table-dark">
+                    <tr>
+                        <th>Repo</th>
+                        <th>Number</th>
+                        <th>Title</th>
+                        <th>URL</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be filled dynamically or statically here -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <script>
+        /*
+            Example of data payload expected.
+            Currently, 'data' is coming from './issues.js' file.
+        */
+        // const data = [
+        //     { repo: 'Repo1', number: 10, title: 'Ex1', url: 'example.bla/ex1', date: '1970-01-01' },
+        //     { repo: 'Repo2', number: 5, title: 'Ex2', url: 'example.bla/ex2', date: '1999-12-31' },
+        //     { repo: 'Repo3', number: 8, title: 'Ex3', url: 'example.bla/ex3', date: '2000-01-01' }
+        // ];
+
+        // Create table
+        document.addEventListener('DOMContentLoaded', function () {
+            populateTable('myTable');
+            let table = new DataTable('#myTable',
+                {
+                    responsive: true,
+                    // scrollY: '100%',
+                    paging: false,
+                    rowGroup: true
+                });
+            // Add info about how to use Search box
+            let searchElem = document.querySelector("div .dt-search");
+            searchElem.setAttribute("title", "Case-insensitive search/filter words in any order");
+
+            document.querySelectorAll('a.toggle-vis').forEach((el) => {
+    el.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        let columnIdx = e.target.getAttribute('data-column');
+        let column = table.column(columnIdx);
+
+        // Toggle the visibility
+        column.visible(!column.visible());
+    });
+});
+        });
+
+        // Function to populate the table with data
+        function populateTable(tableElementId) {
+            const tableBody = document.getElementById(tableElementId).getElementsByTagName('tbody')[0];
+            data.forEach(item => {
+                let row = tableBody.insertRow();
+
+                let cellRepo = row.insertCell(0);
+                cellRepo.innerHTML = item.repo;
+
+                let cellNumber = row.insertCell(1);
+                cellNumber.innerHTML = item.number;
+
+                let cellTitle = row.insertCell(2);
+                cellTitle.innerHTML = item.title;
+
+                let cellURL = row.insertCell(3);
+                cellURL.innerHTML = `<a href=${item.url} target="_blank">${item.url}<a>`;
+
+                let cellDate = row.insertCell(4);
+                cellDate.innerHTML = item.date;
+            });
+        }
+
+    </script>
+</body>
+
+</html>
