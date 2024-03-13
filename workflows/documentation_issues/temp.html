@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filterable and Sortable Table</title>
+</head>
+
+<body>
+
+    <!-- Dropdown for filtering -->
+    <select id="repoFilter" onchange="filterTable()">
+        <option value="">Filter by repo</option>
+        <!-- Options will be filled dynamically -->
+    </select>
+
+    <!-- Button for sorting -->
+    <!-- <button onclick="sortTable()">Sort by Number</button> -->
+
+    <!-- Table structure -->
+    <table id="repoTable">
+        <thead>
+            <tr>
+                <th>Repo</th>
+                <th>Number</th>
+                <th>Title</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be filled dynamically or statically here -->
+        </tbody>
+    </table>
+
+    <script>
+        // JavaScript for filtering and sorting will go here
+        document.addEventListener('DOMContentLoaded', function () {
+            populateTable();
+            populateFilterDropdown();
+        });
+
+        /* Example data - replace this with your actual data
+        const data = [
+            { repo: 'Repo1', number: 10 },
+            { repo: 'Repo2', number: 5 },
+            { repo: 'Repo3', number: 8 }
+        ];
+        */
+
+        // Function to populate the table with data
+        function populateTable() {
+            const tableBody = document.getElementById('repoTable').getElementsByTagName('tbody')[0];
+            data.forEach(item => {
+                let row = tableBody.insertRow();
+                let cellRepo = row.insertCell(0);
+                let cellNumber = row.insertCell(1);
+                let cellTitle = row.insertCell(2);
+                let cellURL = row.insertCell(3);
+                cellRepo.innerHTML = item.repo;
+                cellNumber.innerHTML = item.number;
+                cellTitle.innertHTML = item.title;
+                cellURL.innerHTML = item.url;
+            });
+        }
+
+        // Function to populate the filter dropdown
+        function populateFilterDropdown() {
+            const dropdown = document.getElementById('repoFilter');
+            let repos = new Set(data.map(item => item.repo));
+            repos.forEach(repo => {
+                let option = new Option(repo, repo);
+                dropdown.add(option);
+            });
+        }
+
+        // Function to filter table rows
+        function filterTable() {
+            let filterValue = document.getElementById('repoFilter').value;
+            let table = document.getElementById('repoTable');
+            let tr = table.getElementsByTagName('tr');
+
+            for (let i = 0; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName('td')[0];
+                if (td) {
+                    let textValue = td.textContent || td.innerText;
+                    if (textValue == filterValue || filterValue === "") {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        // Function to sort the table by 'number' column
+        function sortTable() {
+            let table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById('repoTable');
+            switching = true;
+            // Make a loop that will continue until no switching has been done
+            while (switching) {
+                // Start by saying: no switching is done
+                switching = false;
+                rows = table.rows;
+                // Loop through all table rows (except the first, which contains table headers)
+                for (i = 1; i < (rows.length - 1); i++) {
+                    // Start by saying there should be no switching
+                    shouldSwitch = false;
+                    // Get the two elements to compare, one from current row and one from the next
+                    x = rows[i].getElementsByTagName('TD')[1];
+                    y = rows[i + 1].getElementsByTagName('TD')[1];
+                    // Check if the two rows should switch place, based on the direction, asc or desc
+                    if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
+                        // If yes, mark as a switch and break the loop
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    // If a switch has been marked, make the switch and mark that a switch has been done
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+
+        const data = [{
+            'title': 'Add persona centric docs',
+            'url': 'https://github.com/jupyter/jupyter/issues/683',
+            'repo': 'jupyter/jupyter',
+            'number': '683'
+        },
+        {
+            'title': 'Use excalidraw for our manually-created diagrams',
+            'url': 'https://github.com/jupyter/jupyter/issues/667',
+            'repo': 'jupyter/jupyter',
+            'number': '667'
+        },
+        {
+            'title': 'Refactor the documentation to use the main branch',
+            'url': 'https://github.com/jupyter/jupyter/issues/657',
+            'repo': 'jupyter/jupyter',
+            'number': '657'
+        },
+        {
+            'title': 'A11y - Jupyter logo does not have enough contrast in dark mode',
+            'url': 'https://github.com/jupyter/jupyter/issues/620',
+            'repo': 'jupyter/jupyter',
+            'number': '620'
+        },
+        {
+            'title': 'Why have an Advanced Topics section when there is only one "topic?"',
+            'url': 'https://github.com/jupyter/jupyter/issues/581',
+            'repo': 'jupyter/jupyter',
+            'number': '581'
+        },
+        {
+            'title': 'Anyone want to help with a round of documentation improvements?',
+            'url': 'https://github.com/jupyter/jupyter/issues/511',
+            'repo': 'jupyter/jupyter',
+            'number': '511'
+        },
+        {
+            'title': 'Translating Official Documentation to Spanish',
+            'url': 'https://github.com/jupyter/jupyter/issues/430',
+            'repo': 'jupyter/jupyter',
+            'number': '430'
+        },
+        {
+            'title': 'Notebook server API documentation lacks information about trust',
+            'url': 'https://github.com/jupyter/jupyter/issues/424',
+            'repo': 'jupyter/jupyter',
+            'number': '424'
+        },
+        {
+            'title': 'Some things we can improve in the documentation',
+            'url': 'https://github.com/jupyter/jupyter/issues/412',
+            'repo': 'jupyter/jupyter',
+            'number': '412'
+        },
+        {
+            'title': 'Create a man page',
+            'url': 'https://github.com/jupyter/jupyter/issues/306',
+            'repo': 'jupyter/jupyter',
+            'number': '306'
+        },
+        {
+            'title': 'Document JSON config format',
+            'url': 'https://github.com/jupyter/jupyter/issues/242',
+            'repo': 'jupyter/jupyter',
+            'number': '242'
+        },
+        {
+            'title': 'Glossary in docs',
+            'url': 'https://github.com/jupyter/jupyter/issues/220',
+            'repo': 'jupyter/jupyter',
+            'number': '220'
+        },
+        {
+            'title': 'Review top-level docs for prospective kernel authors',
+            'url': 'https://github.com/jupyter/jupyter/issues/216',
+            'repo': 'jupyter/jupyter',
+            'number': '216'
+        },
+        {
+            'title': 'Citing Jupyter',
+            'url': 'https://github.com/jupyter/jupyter/issues/190',
+            'repo': 'jupyter/jupyter',
+            'number': '190'
+        },
+        {
+            'title': '[docs/theme] Pay attention to the "width" of screenshot.',
+            'url': 'https://github.com/jupyter/jupyter/issues/159',
+            'repo': 'jupyter/jupyter',
+            'number': '159'
+        },
+        {
+            'title': 'Too many documentation kill the documentation ?',
+            'url': 'https://github.com/jupyter/jupyter/issues/137',
+            'repo': 'jupyter/jupyter',
+            'number': '137'
+        },
+        {
+            'title': 'Create a developer guide - action item from dev mtg',
+            'url': 'https://github.com/jupyter/jupyter/issues/128',
+            'repo': 'jupyter/jupyter',
+            'number': '128'
+        },
+        {
+            'title': 'Link to dev-install from Install section.',
+            'url': 'https://github.com/jupyter/jupyter/issues/109',
+            'repo': 'jupyter/jupyter',
+            'number': '109'
+        },
+        {
+            'title': '[Docs] list supported mimetype ',
+            'url': 'https://github.com/jupyter/jupyter/issues/66',
+            'repo': 'jupyter/jupyter',
+            'number': '66'
+        },
+        {
+            'title': 'Create a better way to manage subproject docs',
+            'url': 'https://github.com/jupyter/jupyter/issues/51',
+            'repo': 'jupyter/jupyter',
+            'number': '51'
+        },
+        {
+            'title': 'Provide access to the documentation for older version',
+            'url': 'https://github.com/jupyter/notebook/issues/7149',
+            'repo': 'jupyter/notebook',
+            'number': '7149'
+        },
+        {
+            'title': 'Installation guide (android, termux)',
+            'url': 'https://github.com/jupyter/notebook/issues/7148',
+            'repo': 'jupyter/notebook',
+            'number': '7148'
+        },
+        {
+            'title': 'Add guidelines for setting up development environment using yarn and npm in CONTRIBUTING.md',
+            'url': 'https://github.com/jupyter/notebook/issues/7029',
+            'repo': 'jupyter/notebook',
+            'number': '7029'
+        },
+        {
+            'title': 'Missing notebook.auth submodule?',
+            'url': 'https://github.com/jupyter/notebook/issues/7015',
+            'repo': 'jupyter/notebook',
+            'number': '7015'
+        },
+        {
+            'title': 'JN 7 → Code Folding starts at the first line regardless the type',
+            'url': 'https://github.com/jupyter/notebook/issues/6987',
+            'repo': 'jupyter/notebook',
+            'number': '6987'
+        },
+        {
+            'title': 'Rework Notebook 7 docs accessibility section',
+            'url': 'https://github.com/jupyter/notebook/issues/6981',
+            'repo': 'jupyter/notebook',
+            'number': '6981'
+        },
+        {
+            'title': '`@web.authenticated` decorator with IPythonHandler is not working on nbclassic',
+            'url': 'https://github.com/jupyter/notebook/issues/6891',
+            'repo': 'jupyter/notebook',
+            'number': '6891'
+        },
+        {
+            'title': 'Get versioned Notebook framework trove classifiers on PyPI',
+            'url': 'https://github.com/jupyter/notebook/issues/6875',
+            'repo': 'jupyter/notebook',
+            'number': '6875'
+        },
+        {
+            'title': 'Revise `pyzmq` requirements in documentation',
+            'url': 'https://github.com/jupyter/notebook/issues/6849',
+            'repo': 'jupyter/notebook',
+            'number': '6849'
+        },
+        {
+            'title': 'Very poor navigation in new readthedocs builds',
+            'url': 'https://github.com/jupyter/notebook/issues/6848',
+            'repo': 'jupyter/notebook',
+            'number': '6848'
+        },
+        {
+            'title': 'Add a large deprecation notice to the front-end extensions documentation',
+            'url': 'https://github.com/jupyter/notebook/issues/6680',
+            'repo': 'jupyter/notebook',
+            'number': '6680'
+        },
+        {
+            'title': 'Document .ipynb_checkpoints directory',
+            'url': 'https://github.com/jupyter/notebook/issues/6659',
+            'repo': 'jupyter/notebook',
+            'number': '6659'
+        },
+        {
+            'title': 'Updates to the contributor.rst file and addition of CONFIGURATION.md file',
+            'url': 'https://github.com/jupyter/notebook/pull/6644',
+            'repo': 'jupyter/notebook',
+            'number': '6644'
+        },
+        {
+            'title': 'feature request: add run buttons like ipynb extension for vscode',
+            'url': 'https://github.com/jupyter/notebook/issues/6486',
+            'repo': 'jupyter/notebook',
+            'number': '6486'
+        },
+        {
+            'title': 'Running `jupyter notebook` opens visual studio code, not a browser',
+            'url': 'https://github.com/jupyter/notebook/issues/4304',
+            'repo': 'jupyter/notebook',
+            'number': '4304'
+        },
+        {
+            'title': "Buttons don't show up properly in Sphinx docs",
+            'url': 'https://github.com/jupyter/notebook/issues/4178',
+            'repo': 'jupyter/notebook',
+            'number': '4178'
+        },
+        {
+            'title': 'Add faq entry about installing on python without sqlite extensions',
+            'url': 'https://github.com/jupyter/notebook/issues/3550',
+            'repo': 'jupyter/notebook',
+            'number': '3550'
+        },
+        {
+            'title': "Safari can't connect to kernel",
+            'url': 'https://github.com/jupyter/notebook/issues/1744',
+            'repo': 'jupyter/notebook',
+            'number': '1744'
+        },
+        {
+            'title': 'Run cells from script or the command line?',
+            'url': 'https://github.com/jupyter/notebook/issues/1643',
+            'repo': 'jupyter/notebook',
+            'number': '1643'
+        },
+        {
+            'title': 'Translating notebook contents',
+            'url': 'https://github.com/jupyter/notebook/issues/1473',
+            'repo': 'jupyter/notebook',
+            'number': '1473'
+        },
+        {
+            'title': 'File save hooks—docs & question',
+            'url': 'https://github.com/jupyter/notebook/issues/916',
+            'repo': 'jupyter/notebook',
+            'number': '916'
+        },
+        {
+            'title': 'Internal links / references to outputs',
+            'url': 'https://github.com/jupyter/notebook/issues/811',
+            'repo': 'jupyter/notebook',
+            'number': '811'
+        },
+        {
+            'title': 'Add a doc page for tips on using Spark',
+            'url': 'https://github.com/jupyter/notebook/issues/788',
+            'repo': 'jupyter/notebook',
+            'number': '788'
+        },
+        {
+            'title': 'Update public server document with troubleshooting and additional resources',
+            'url': 'https://github.com/jupyter/notebook/issues/660',
+            'repo': 'jupyter/notebook',
+            'number': '660'
+        },
+        {
+            'title': 'clarify some points where users can disable security for their own servers',
+            'url': 'https://github.com/jupyterhub/jupyterhub/pull/4699',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4699'
+        },
+        {
+            'title': 'Note that you can throw a 403 from check_allowed',
+            'url': 'https://github.com/jupyterhub/jupyterhub/pull/4682',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4682'
+        },
+        {
+            'title': 'Document / better support for separating user domains from the Hub domain',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4673',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4673'
+        },
+        {
+            'title': 'try redocly for REST API',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4669',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4669'
+        },
+        {
+            'title': 'FastAPI service example - Authorization header not sent in subsequent requests',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4656',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4656'
+        },
+        {
+            'title': 'Minor broken docs: reference to wiki',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4653',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4653'
+        },
+        {
+            'title': 'Better documentation on how to customize the home page',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4610',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4610'
+        },
+        {
+            'title': 'docs: simplify api docs generation for comparison',
+            'url': 'https://github.com/jupyterhub/jupyterhub/pull/4253',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4253'
+        },
+        {
+            'title': 'docs: classes generated docs sometimes include non-traits members, and sometimes do',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4252',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4252'
+        },
+        {
+            'title': 'More documentation on the implications of `server.name`',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4241',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4241'
+        },
+        {
+            'title': '`post_auth_hook` documentation update',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4213',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4213'
+        },
+        {
+            'title': 'PAM Authentication failed',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4203',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4203'
+        },
+        {
+            'title': 'Doc fix',
+            'url': 'https://github.com/jupyterhub/jupyterhub/pull/4200',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4200'
+        },
+        {
+            'title': 'Unaligned Text Blocks on JupyterHub REST API Page (Mobile View)',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4197',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4197'
+        },
+        {
+            'title': '404 Error when try to "edit this page" on JupyterHub home page',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/4138',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4138'
+        },
+        {
+            'title': 'I corrected errors and made an update to api-only.md',
+            'url': 'https://github.com/jupyterhub/jupyterhub/pull/4108',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '4108'
+        },
+        {
+            'title': 'Update JupyterHub REST API permission examples with jupyterhub-idle-culler',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/3814',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '3814'
+        },
+        {
+            'title': 'Illustrate create() classmethod idea',
+            'url': 'https://github.com/jupyterhub/jupyterhub/pull/3801',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '3801'
+        },
+        {
+            'title': 'Unify the documentation for idle-culler',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/3710',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '3710'
+        },
+        {
+            'title': 'More detailed docs on direct network interactions',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/3684',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '3684'
+        },
+        {
+            'title': 'Documentation of jupyterhub.dbutil and alembic revisions',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/3313',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '3313'
+        },
+        {
+            'title': 'Missing HTTP security headers',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/3113',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '3113'
+        },
+        {
+            'title': 'Add a documentation section describing the structure of this repository',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/3080',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '3080'
+        },
+        {
+            'title': 'Auto-generate docs for telemetry events',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/2855',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '2855'
+        },
+        {
+            'title': 'Jupyter(Hub) conceptual intro',
+            'url': 'https://github.com/jupyterhub/jupyterhub/pull/2726',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '2726'
+        },
+        {
+            'title': 'Include the instruction `WorkingDirectory=/etc/jupyterhub` in system service Wiki',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/2593',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '2593'
+        },
+        {
+            'title': 'Include Debian package in documentation ? ',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/2481',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '2481'
+        },
+        {
+            'title': 'Docs: Unclear / confusing DB upgrade instructions',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/2134',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '2134'
+        },
+        {
+            'title': 'Docs: Missing a chapter on monitoring / observability',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/2049',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '2049'
+        },
+        {
+            'title': 'Customize DockerHub documentation for JupyterHub',
+            'url': 'https://github.com/jupyterhub/jupyterhub/issues/1310',
+            'repo': 'jupyterhub/jupyterhub',
+            'number': '1310'
+        },
+        {
+            'title': 'Improve documentation for `jupyter.lab.transform`',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/15749',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15749'
+        },
+        {
+            'title': 'Add a link to postmortem for 3.6.7 release',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/15743',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15743'
+        },
+        {
+            'title': 'Should we use the council members doc page in lieu of the maintainers list in lab readme',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/15729',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15729'
+        },
+        {
+            'title': 'Update maintainers affiliation',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/15724',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15724'
+        },
+        {
+            'title': 'Update lifecycle info for JupyterLab major versions',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/15626',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15626'
+        },
+        {
+            'title': 'Dark High Contrast Theme for JupyterLab with Improved Sidebar Focus Indication',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/15623',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15623'
+        },
+        {
+            'title': 'Reopen recently opened/closed files and modal navigation',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/15483',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15483'
+        },
+        {
+            'title': 'Should proxy environment variables be documented?',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/15425',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15425'
+        },
+        {
+            'title': 'Add dedicated plugin system document',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/15417',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15417'
+        },
+        {
+            'title': 'Some galata improvements',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/15375',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15375'
+        },
+        {
+            'title': 'Mermaid Usage Instructions Missing',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/15139',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15139'
+        },
+        {
+            'title': 'JupyterLab documentation wishlist',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/15099',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '15099'
+        },
+        {
+            'title': 'Add a screenshot with shell areas overview',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/14964',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14964'
+        },
+        {
+            'title': 'Links are broken in Notebooks documentation ',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14934',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14934'
+        },
+        {
+            'title': 'Lab/NB7 extension compatibility docs',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/14838',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14838'
+        },
+        {
+            'title': 'Document process of adding new commands to the command palette ',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14826',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14826'
+        },
+        {
+            'title': '3.6.5: documentation build fails',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14775',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14775'
+        },
+        {
+            'title': 'How to add/insert a new cell with pre defined content to cellList in 4.0.2',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14730',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14730'
+        },
+        {
+            'title': 'Default "open" application when opening files inside Jupyterlab',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14679',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14679'
+        },
+        {
+            'title': 'Automatic download links per OS',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/14675',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14675'
+        },
+        {
+            'title': 'Extension tutorial enhancement',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/14669',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14669'
+        },
+        {
+            'title': 'Failed validating settings',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14594',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14594'
+        },
+        {
+            'title': 'better document the metadata-related changes in jlab4 extension API',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14445',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14445'
+        },
+        {
+            'title': 'Updating extension status in migration guide',
+            'url': 'https://github.com/jupyterlab/jupyterlab/pull/14428',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14428'
+        },
+        {
+            'title': 'Create an accessibility section in the user JupyterLab documentation',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14396',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14396'
+        },
+        {
+            'title': "Support interactivity for python source files (ipython's cell magics and live execution)",
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14386',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14386'
+        },
+        {
+            'title': 'Documenting the requirements of `OK` extension status',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14351',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14351'
+        },
+        {
+            'title': 'Better messaging around conflicts with sharedPackages',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14294',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14294'
+        },
+        {
+            'title': 'Trying to disable build check, current instructions not working as expected',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14283',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14283'
+        },
+        {
+            'title': 'Lumino Widgets >= 2.0.0 is incompatible with JupyterLab Extension Tutorial example code',
+            'url': 'https://github.com/jupyterlab/jupyterlab/issues/14258',
+            'repo': 'jupyterlab/jupyterlab',
+            'number': '14258'
+        },
+        {
+            'title': 'Support Windows Subsystem for Linux (WSL)',
+            'url': 'https://github.com/jupyterlab/jupyterlab-desktop/issues/666',
+            'repo': 'jupyterlab/jupyterlab-desktop',
+            'number': '666'
+        },
+        {
+            'title': 'conversation starter for introductory docs',
+            'url': 'https://github.com/jupyterlab/jupyterlab-desktop/pull/654',
+            'repo': 'jupyterlab/jupyterlab-desktop',
+            'number': '654'
+        },
+        {
+            'title': 'After upgrading JupyterLab using pip, I started jupyter-lab from the windows command and got an error.',
+            'url': 'https://github.com/jupyterlab/jupyterlab-desktop/issues/577',
+            'repo': 'jupyterlab/jupyterlab-desktop',
+            'number': '577'
+        }];
+        // const data = { DATA }
+
+    </script>
+
+</body>
+
+</html>
