@@ -79,82 +79,154 @@ The graph below presents the best known software components of the Project.
 There are many other components -- like Jupyter-Server, Jupyter-Kernels --
 that we will talk about later, but for starter we go with the most common ones.
 
+Connections and groups in this diagram are not formal relationships but
+simple indicators to help us draw the big picture in the next sections.
+
 ```mermaid
 graph TD
     IPython
+        click IPython href "https://ipython.org" _blank
 
-    subgraph Source-code
-        Nbformat[["Notebook File Format (.ipynb)"]]
-        JupyterWidgets>Jupyter Widgets]
+    subgraph source/code
+        Nbformat[["Notebook file format (.ipynb)"]]
+            click Nbformat href "https://nbformat.readthedocs.io" _blank
+
+        JupyterWidgets>Jupyter-Widgets]
+            click JupyterWidgets href "http://ipywidgets.readthedocs.io" _blank
     end
 
-    %%subgraph Interpreters
-        subgraph Frontends
-            JupyterNotebook(Jupyter Notebook)
-            JupyterLab(Jupyter Lab)
-        end
+    subgraph frontends
+        direction LR
 
-        subgraph nb-Tools
-            Nbviewer[nbviewer]
-            Nbconvert[nbconvert]
-            Nbdime[nbdime]
-        end
+        JupyterLab(Jupyter-Lab)
+            click JupyterLab href "https://jupyterlab.readthedocs.io" _blank
+
+        JupyterNotebook(Jupyter-Notebook)
+            click JupyterNotebook href "https://jupyter-notebook.readthedocs.io" _blank
+    end
+
+    subgraph viewers
+        direction LR
+
+        Binder(Binder)
+            click Binder href "https://mybinder.org" _blank
 
         Voila(Voilà)
-    %%end
+            click Voila href "https://voila.readthedocs.io" _blank
 
-    %%subgraph Hubs
-        JupyterHub(Jupyter Hub)
-        BinderHub(BinderHub)
-        BinderHub --> JupyterHub    
-    %%end
+        Nbviewer[nbviewer]
+            click Nbviewer href "https://nbviewer.org" _blank
 
-    JupyterHub --> Frontends
-    IPython ~~~ Source-code
-    Frontends ---> Source-code
-    Voila ---> Source-code
-    nb-Tools --> Source-code
+        Nbconvert[nbconvert]
+            click Nbconvert href "https://nbconvert.readthedocs.io" _blank
+    end
 
+    JupyterHub(Jupyter-Hub)
+        click JupyterHub href "https://jupyterhub.readthedocs.io" _blank
+
+    JupyterHub --> frontends
+    IPython ~~~ source/code
+    frontends --> source/code
+    viewers --> source/code
 ```
 
 
 ## *Notebook* vs *notebook*
+[nbformat.readthedocs.io]: https://nbformat.readthedocs.io
+[jupyter-notebook.readthedocs.io]: https://jupyter-notebook.readthedocs.io
 
 Probably the most overloaded term within the community is "notebook".
 
-Formally, "notebook" has two meanings: the notebook *file* format -- the `.ipynb` 
+Formally, "notebook" has two meanings: the **notebook file format** -- the `.ipynb` 
 files -- where data/content are stored (ie, the digital document); 
-And the Notebook *application* for editing and running the notebook files.
+And the **Jupyter-Notebook** application for editing and running notebook files.
 
-We will refer to the application as Jupyter-Notebook or simply Notebook 
-with capital "N". 
-Whereas the digital file will be referred as (lower-case) **notebook**, if 
-necessary to talk technical about the internal *format* definition of notebooks
-we will refer to it as "nbformat".
+Jupyter-Notebook -- the application -- may be referred simply as "Notebook".
+As in many situations in life, discerning between the (notebook) file/document
+and the (Notebook) application should be clear from the context.
 
-> By the way, if want to learn the technical aspect of notebook files format,
-nbformat, see the specific documentation at https://nbformat.readthedocs.io.
+In Jupyter official documentation we refer to the application as Jupyter-Notebook 
+or simply Notebook with capital "N". 
+The digital file/document is written as a common name (ie, lower-case) notebook.
 
-There is also another situation where the term "notebook" can be overused:
-when we are referring to *any* (editing) application, Jupyter-Lab for instance.
+You can find detailed information about notebook file format, `nbformat`, and
+the frontend application in their respective official documentation:
+
+- Notebook file format: [nbformat.readthedocs.io][]
+- Jupyter-Notebook: [jupyter-notebook.readthedocs.io][]
 
 
 ## *Notebook* and *Lab*
+[jupyterlab.readthedocs.io]: https://jupyterlab.readthedocs.io
 
-There are two graphical user interface (applications) to edit and run notebooks:
+There are two applications (aka, frontends) to edit and run notebooks:
 Jupyter-Notebook and Jupyter-Lab. Jupyter-Lab is an evolution of Jupyter-Notebook, 
 it provides a more concise and customizable user interface.
 
-At of this writing it is mostly a matter of preference which application/interface
-to use, they provide the same functionalities on what regards editing and running
-notebook documents.
+It is mostly a matter of preference which application/interface to use, 
+they both provide pretty much the same functionalities on what regards editing 
+and running notebook documents.
+The *Lab* provides a richer graphical user interface (GUI), whereas *Notebook*
+provides a simpler GUI.
+
+Personally, I like to use Jupyter-Lab on my daily work as a data analyst, and 
+Jupyter-Notebook while teaching so we can all focus on the notebook's content.
 
 Regarding ambiguous use of terms, sometimes people will refer to Jupyter-Lab 
-as "Notebook"; 
-This will be the case when you talk to someone that is old enough to have used
-the Notebook application extensively, in a time when Jupyter-Lab was not here.
+as "Notebook"; This is certainly the case among old practitioners, that used
+the Notebook application extensively in a time prior to Jupyter-Lab.
+
+- Jupyter-Lab: [jupyterlab.readthedocs.io][]
 
 
------
-### TBC
------
+## What about *Hub*?
+[jupyterhub.readthedocs.io]: https://jupyterhub.readthedocs.io
+
+Jupyter-Hub is a manager of Jupyter-Lab and Jupyter-Notebook instances in
+multi-user settings. 
+
+In a Jupyter-Hub setup editing and running notebook files is
+still performed by Lab and Notebook, the Hub is responsible for authenticating
+users and handling them their corresponding Lab/Notebook instance connection.
+
+Jupyter-Hub can be set up in different system configurations: in a single computer,
+in a cluster of computers, in containers in the cloud.
+The Hub is quite flexible and easy to extend for specific multi-user scenarios.
+
+For details:
+
+- Jupyter-Hub: [jupyterhub.readthedocs.io][]
+
+
+## IPython, Jupyter-Widgets and ...IPyWidgets?!
+[ipywidgets.readthedocs.io]: https://ipywidgets.readthedocs.io
+[ipython.readthedocs.io/interactive/tutorial]: https://ipython.readthedocs.io/en/stable/interactive/tutorial.html
+[ipython.readthedocs.io/interactive/magics]: https://ipython.readthedocs.io/en/stable/interactive/magics.html
+[ipykernel.readthedocs.io]: https://ipykernel.readthedocs.io
+[ipython.org]: https://ipython.org
+
+Once upon a time, there was only IPython, and among many other things
+(see the [History of Jupyter][]) `ipywidgets` as the library providing 
+interactive widgets (buttons, sliders, etc) to be used in Jupyter notebooks.
+
+It took some time for IPyWidgets to be renamed after "Jupyter", but it eventually
+happened (or *is happening*).
+To not break compatibility with older code-bases, the  software library is
+still called `ipywidgets`.
+The subproject and high-level references to the widgets were renamed to
+Jupyter-Widgets.
+By all means, **Jupyter-Widgets** and IPyWidgets are the very same thing.
+
+- Jupyter-Widgets: [ipywidgets.readthedocs.io][]
+
+Going back to **IPython**... Depending on the use made of Jupyter and Python,
+many users don't happen to interact with IPython directly.
+If not essential, the functionalities provided by IPython are much helpful:
+
+- interactive shell: [ipython.readthedocs.io/interactive/tutorial][]
+- magic commands: [ipython.readthedocs.io/interactive/magics][]
+- Python kernels: [ipykernel.readthedocs.io][]
+
+The `ipython` package provides many other features worth having a look:
+
+- IPython: [ipython.org][]
