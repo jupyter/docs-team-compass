@@ -1,79 +1,68 @@
 # What is Jupyter
 
+[Accessibility]: https://github.com/jupyter/accessibility
+[About]: https://jupyter.org/about
 [Get Involved]: https://jupyter.org/community
 [History of Jupyter]: ./history_of_jupyter.md
-[jupyter.org/about]: https://jupyter.org/about
 [Jupyter-Lab]: https://jupyterlab.readthedocs.io
-[Project Jupyter Governance]: https://jupyter.org/governance/intro.html
+[Governance]: https://jupyter.org/governance/intro.html
 [Python]: https://en.wikipedia.org/wiki/Python_(programming_language)
+[Security]: https://github.com/jupyter/security
 [subprojects]: https://jupyter.org/governance/list_of_subprojects.html
-
-> If you are *absolutely new* to "Jupyter" and this is the first page you read on
-the topic here goes the shortest description of the whole Jupyter thing:
-many years ago a group of people defined a document format where we can write 
-not only good-old text (eg, in English) but also code (eg, in [Python][]) in
-such a way that it can be run, rendering the document *dynamic* regarding its
-content. Such document is popularly called *executable notebook*, or simply
-"notebook". From there and around the *notebook* file format a whole ecosystem 
-of software tools was created, and the Project Jupyter is there to nurture its
-development.
 
 The term "Jupyter" can mean different things depending on the context it is being used: Jupyter, the notebook; Jupyter, the server; Jupyter, the project.
 It is not unusual to fill confused with the many uses of "Jupyter", especially 
-for new comers, so let's try to clear the fog around it.
+for new comers, so let's try to clear off the fog.
 
-Here is a situation that happened to me and my colleague (10+ years in the business)
-on of these days:
+> This is part of a recent effort to improve Jupyter documentation.
+> If you have any observation, critic, or suggestion regarding this or any
+> other piece of documentation, please let us know by creating an issue in
+> our GitHub repository or simply writing a message in our Discourse channel
+> [discourse.jupyter.org](discourse.jupyter.org).
 
-> \- Did you prepare the Jupyter *notebook*?
->
-> \- Which *notebook*? The one with those plots?
->
-> \- No. The *server* to deploy.
->
-> \- Oh! You mean the *Lab*?!
->
-> \- Yes, but set as *Notebook*, not *Lab*.
->
-> \- Yes, right. Will do.
->
-> \- Also, can you send me that *notebook*, with the plots?
+There is extensive documentation of the many parts and components of Jupyter
+which we'll use here to refer the reader to.
+This document is a companion to the [History of Jupyter][] (HoJ), and supplemental
+to the Projects pages in Jupyter Docs ([`docs.jupyter.org > Projects`](https://docs.jupyter.org/en/latest/projects/content-projects.html)).
 
-...This is a conversation many of the old-users are used to but an outsider would 
-judge it insane, and I don't blame them. 
+### What's *inside* Jupyter?
+[nbformat]: nbformat.jupyter.org
 
-There are historical and social reasons for why some terms are overloaded or 
-overlapping; Jupyter grew extremely successful, out in the open, by the community.
-If you want to learn its origins and timeline development, have a look at
-the [History of Jupyter][].
+At the core of Jupyter we will find the [**notebook** file format][nbformat].
+A *notebook* is a document where programming and spoken languages 
+(ie, code and text) meet to create executable scientific articles.
+Notebooks find their use through different applications: data story telling, reproducible science, interactive tutorials, etc.
 
-In this document, we are going to define terms and relate major components of the 
+Around notebooks, there is a whole ecosystem of software components to support
+the different uses of it: notebook editors, converters to/from other formats,
+cloud services, and a whole lot of tools and libraries. *Most* of the software
+is written in Python because of the origins of Jupyter (see HoJ), but not only.
+
+### What's the structure of Jupyter?
+
+Jupyter is developed completely in the open, by the community, but there is a
+personnel structure guiding the developments and taking care of the resources.
+The actual development of the software components are done in the scope of
+[Jupyter (sub)projects][subprojects].
+
+While some subprojects take care of the development of a specific software 
+component, other projects will take care of broader discussions, such as the
+[Accessibility][] and [Security][] projects.
+
+> - If you are completely new to *Jupyter*, the project's [About][]
+> page is a good reading.
+>
+> - If you want to know more about the organizational structure: 
+> [Governance][] pages.
+> 
+> - And if you would like to contribute to the project, have a look at 
+> the [Get Involved][] page.
+
+In the following sections we are going to define the major components of the 
 Jupyter ecosystem. This is *not* a complete reference of every aspect of Jupyter,
-but rather a clarification document where the overlapping, or ambiguous concepts.
+but rather a clarification document of the complexity of Jupyter content.
 
-If you are completely new to *Jupyter*, the [`jupyter.org/about`][jupyter.org/about]
-page is a good first reading offering an overview of Jupyter, the **project**.
-For the purpose of this document, let's distinguish between (1) the *institution* 
-and (2) the *software*:
-
-1. *Jupyter* is a non-profit organization dedicated to the development of a series of 
-free and open source software (FOSS) composing the *Jupyter ecosystem*.
-
-2. The software ecosystem is composed by applications such as [Jupyter-Lab][],
-file format standards, and many other tools and libraries. Many of them, for
-historical reasons, have "Jupyter" in their names (Jupyter-Notebook, Jupyter-Hub).
-
-The whole of the Jupyter ecosystem is commonly referred as the Jupyter *project*.
-Jupyter -- the project -- is structured in *sub-projects*, the sub-projects 
-are responsible for the development of specific software component. Such 
-structure is transparent and irrelevant to most users but will be relevant for
-those willing to collaborating to the project.
-
-> For detailed information on the organizational structure of the Project, 
-> we invite you to read [Project Jupyter Governance][] pages.
-> And if you would like to contribute or just get closer to the software development
-> process, have a look at the [Get Involved][] page.
-
+## Jupyter software
 
 The graph below presents the best known software components of the Project.
 There are many other components -- like Jupyter-Server, Jupyter-Kernels --
@@ -131,7 +120,7 @@ graph TD
 ```
 
 
-## *Notebook* vs *notebook*
+### *Notebook* vs *notebook*
 [nbformat.readthedocs.io]: https://nbformat.readthedocs.io
 [jupyter-notebook.readthedocs.io]: https://jupyter-notebook.readthedocs.io
 
@@ -156,7 +145,7 @@ the frontend application in their respective official documentation:
 - Jupyter-Notebook: [jupyter-notebook.readthedocs.io][]
 
 
-## *Notebook* and *Lab*
+### *Notebook* and *Lab*
 [jupyterlab.readthedocs.io]: https://jupyterlab.readthedocs.io
 
 There are two applications (aka, frontends) to edit and run notebooks:
@@ -179,7 +168,7 @@ the Notebook application extensively in a time prior to Jupyter-Lab.
 - Jupyter-Lab: [jupyterlab.readthedocs.io][]
 
 
-## What about *Hub*?
+### What about *Hub*?
 [jupyterhub.readthedocs.io]: https://jupyterhub.readthedocs.io
 
 Jupyter-Hub is a manager of Jupyter-Lab and Jupyter-Notebook instances in
@@ -198,7 +187,7 @@ For details:
 - Jupyter-Hub: [jupyterhub.readthedocs.io][]
 
 
-## IPython, Jupyter-Widgets and ...IPyWidgets?!
+### IPython, Jupyter-Widgets and IPyWidgets
 [ipywidgets.readthedocs.io]: https://ipywidgets.readthedocs.io
 [ipython.readthedocs.io/interactive/tutorial]: https://ipython.readthedocs.io/en/stable/interactive/tutorial.html
 [ipython.readthedocs.io/interactive/magics]: https://ipython.readthedocs.io/en/stable/interactive/magics.html
@@ -219,14 +208,11 @@ By all means, **Jupyter-Widgets** and IPyWidgets are the very same thing.
 
 - Jupyter-Widgets: [ipywidgets.readthedocs.io][]
 
-Going back to **IPython**... Depending on the use made of Jupyter and Python,
-many users don't happen to interact with IPython directly.
-If not essential, the functionalities provided by IPython are much helpful:
+Going back to IPython... The **IPython** project is responsible for many
+important packages, some are fundamental and some are *just* very helpful.
+For the readers of this document, I want to highlight IPython's:
 
 - interactive shell: [ipython.readthedocs.io/interactive/tutorial][]
 - magic commands: [ipython.readthedocs.io/interactive/magics][]
-- Python kernels: [ipykernel.readthedocs.io][]
 
-The `ipython` package provides many other features worth having a look:
-
-- IPython: [ipython.org][]
+For more details on IPython features check [`docs.jupyter.org > Projects > IPython`](https://docs.jupyter.org/en/latest/projects/ipython_projects.html).
