@@ -19,7 +19,7 @@ We have videoconference meetings every week where we discuss what we have been w
 Anyone is welcome to attend, if they would like to discuss a topic or just listen in.
 
 - When: Wednesdays 8:00 AM Pacific Time (USA)
-- Where: <a href="https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09" target="_blank">jovyan Zoom</a>
+- Where: <a href="https://zoom.us/j/95228013874?pwd%3DEp7HIk8t9JP6VToxt1Wj4P7K5PshC0.1" target="_blank">jovyan Zoom</a>
 - What: Meeting notes
 
 ## Meeting notes (HackMD)
